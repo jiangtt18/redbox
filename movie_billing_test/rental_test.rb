@@ -1,4 +1,4 @@
-require_relative '../rental'
+require_relative '../movie_billing/rental'
 
 def _testRentalInitialize()
   movie = Movie.new('light',2)

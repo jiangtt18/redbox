@@ -1,4 +1,4 @@
-require_relative '../movie'
+require_relative '../movie_billing/movie'
 
 def _testMovieHash()
   regular = Movie::MOVIE_TYPE[0]

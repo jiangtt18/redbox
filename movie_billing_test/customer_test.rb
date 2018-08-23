@@ -1,4 +1,4 @@
-require_relative '../customer'
+require_relative '../movie_billing/customer'
 
 def _test_Calc_Rent()
   movie = Movie.new('Get Out', 3)
