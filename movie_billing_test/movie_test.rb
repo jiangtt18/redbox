@@ -1,5 +1,4 @@
-hash = Movie::MOVIE_TYPE[3]
-puts hash[:type]
+require_relative '../movie'
 
 def _testMovieHash()
   regular = Movie::MOVIE_TYPE[0]
@@ -18,6 +17,6 @@ def _testMovieAccessor()
   return movie.price_code === 2
 end
 
-_testMovieHash()
-_testMovieInitialize()
-_testMovieAccessor()
+puts "testMovieHash returns #{_testMovieHash()}"
+puts "testMovieInitialize returns #{_testMovieInitialize()}"
+puts "testMovieAccessor returns #{_testMovieAccessor()}"

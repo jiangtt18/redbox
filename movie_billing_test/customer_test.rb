@@ -1,3 +1,4 @@
+require_relative '../customer'
 
 def _test_Calc_Rent()
   movie = Movie.new('Get Out', 3)
@@ -5,7 +6,6 @@ def _test_Calc_Rent()
   customer = Customer.new('Jerry')
   customer.calc_rent(10,3,3) == 21
 end
-
 
 
 def _test_calc_price_when_no_rent()
@@ -52,12 +52,11 @@ end
 
 def _test_add_rental_when_has_one_rental()
   movie = Movie.new('Get Out', 3)
-  rental = Rental.new(movie,1)
+  rental = Rental.new(movie, 1)
   customer = Customer.new('Jerry')
   customer.add_rental(rental)
-  customer.total_price == 1 &&
-  customer.rentals.include?('Get Out') &&
-  customer.frequent_renter_points == 1
+  customer.total_price == 1.5 &&
+  customer.rentals.include?('Get Out') && customer.frequent_renter_points == 1
 end
 
 
@@ -69,8 +68,7 @@ def _test_add_rental_when_have_two_rentals()
   customer = Customer.new('Jerry')
   customer.add_rental(rental)
   customer.add_rental(rental1)
-  puts customer.print_statement
-  customer.total_price == 13.5 && customer.rentals.include?('Get Out') && customer.rentals.include?('Bird Man')&& customer.frequent_renter_points == 2
+  customer.total_price == 6.5 && customer.rentals.include?('Get Out') && customer.rentals.include?('Bird Man')&& customer.frequent_renter_points == 2
 end
 
 def _test_renter_points_new_release()
@@ -87,11 +85,11 @@ def _test_renter_points_no_special_type()
   customer.update_renter_points(type,days_rented) == 1
 end
 
-_test_Calc_Rent()
-_test_calc_price_when_no_rent()
-_test_calc_price_when_has_rent()
-_test_add_rental_when_has_an_error()
-_test_add_rental_when_has_one_rental()
-_test_add_rental_when_have_two_rentals()
-_test_renter_points_new_release()
-_test_renter_points_no_special_type()
+puts "test_Calc_Rent returns #{ _test_Calc_Rent() }"
+puts "test_calc_price_when_no_rent returns #{  _test_calc_price_when_no_rent() }"
+puts "test_calc_price_when_has_rent returns #{ _test_calc_price_when_has_rent() }"
+puts "test_add_rental_when_has_an_error returns #{_test_add_rental_when_has_an_error()}"
+puts "test_add_rental_when_has_one_rental #{_test_add_rental_when_has_one_rental()}"
+puts "test_add_rental_when_have_two_rentals returns #{_test_add_rental_when_have_two_rentals()}"
+puts "test_renter_points_new_release returns #{_test_renter_points_new_release()}"
+puts "test_renter_points_no_special_type returns #{_test_renter_points_no_special_type()}"
