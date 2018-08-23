@@ -28,7 +28,7 @@ class Customer
     # Add frequent renter points
     @frequent_renter_points += 1
      # Add a bonus point for a new release rental over 2 days
-    @frequent_renter_points += 1 if type === 'new_release' && days_rented > 2
+    @frequent_renter_points += 1 if type === 'new_release' && days_rented > 1
     @frequent_renter_points
   end
 
@@ -44,7 +44,7 @@ class Customer
 
   end
 
-  # private
+  private
 
   def is_rental_info_Valid(rental)
     price_code = rental.movie.price_code
@@ -54,7 +54,7 @@ class Customer
 
   def calc_price(movie_details, name,days_rented)
     days_without_rent = movie_details[:max_days_without_rent]
-    cost = calc_cost(days_rented, movie_details[:costs])
+    cost =  movie_details[:costs]
 
     unitPrice = days_rented > days_without_rent ?  cost + calc_rent(days_rented, days_without_rent, movie_details[:rent] ) : cost
 
@@ -63,9 +63,6 @@ class Customer
     unitPrice
   end
 
-  def calc_cost(days, costPerDay)
-    days * costPerDay
-  end
 
   def calc_rent(days, no_rental_days, rentPerDay)
    (days - no_rental_days) * rentPerDay

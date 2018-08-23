@@ -1,14 +1,15 @@
 class Movie
-  CHILDRENS = 2
-  NEW_RELEASE = 1
-  REGULAR = 0
+  #CLASSIC = 3
+  # CHILDRENS = 2
+  # NEW_RELEASE = 1
+  # REGULAR = 0
 
   MOVIE_TYPE = {
     3 => {
         type: 'classic',
         costs: 1,
         rent: 0.5,
-        max_days_without_rent: 1
+        max_days_without_rent: 0
     },
     2 => {
         type: 'children',
