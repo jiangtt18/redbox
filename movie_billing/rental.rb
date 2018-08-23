@@ -1,3 +1,4 @@
+require_relative "movie"
 class Rental
 
   attr_reader :days_rented, :movie

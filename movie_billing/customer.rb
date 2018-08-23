@@ -1,7 +1,9 @@
+require_relative "rental"
 
 class Customer
 
-  attr_reader :name, :rentals, :price_breakdown, :total_price, :frequent_renter_points
+  attr_reader :name
+  attr_reader :rentals, :price_breakdown, :total_price, :frequent_renter_points
 
   def initialize(name)
     @rentals = {}
@@ -44,7 +46,8 @@ class Customer
 
   end
 
-  private
+
+  # private
 
   def is_rental_info_Valid(rental)
     price_code = rental.movie.price_code

@@ -1,5 +1,5 @@
 class Movie
-  #CLASSIC = 3
+  # CLASSIC = 3
   # CHILDRENS = 2
   # NEW_RELEASE = 1
   # REGULAR = 0
